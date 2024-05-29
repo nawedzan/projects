@@ -1,0 +1,1 @@
+add a function where if all valid box are clicked you win

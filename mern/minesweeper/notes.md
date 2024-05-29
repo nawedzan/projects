@@ -28,3 +28,4 @@ use classlist property to
  2. fill property
  3. dynamic nature of js and i can fit any type of element in the array
  4. event listener use e when document property or methods needs to be called other for custom method call as is
+ 5. standard bfs is not possible coz of edges

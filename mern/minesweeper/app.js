@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
          validarray=validarray.concat(bombarray);
         // validarray
         validarray=validarray.sort( () =>Math.random()-0.5);
-        console.log(validarray)
+        // console.log(validarray)
 
-        console.log(flagsleft.innerHTML)
+        // console.log(flagsleft.innerHTML)
         for(let i=0;i< width*width;i++){
             const square=document.createElement('div')
             square.classList.add('box')
@@ -75,50 +75,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     createBoard();
     
+    function click(square){
+        let currentId=square.id;
+        
+        
+        square.classList.add('checked')
+        if(square.classList.contains('bomb')){
+           gameover();
+        }
+        else{
+          let total=square.getAttribute('data');
+          if(total!=0){
+            square.innerHTML=total
+          }
+          else{
+            checkForZero(square,currentId);
+          }
+        }
+       
+    }
     function addFlag(square) {
-      if (isGameOver) return
+      // if (isGameOver) return
       if (!square.classList.contains('checked') && (flags < bombAmount)) {
         if (!square.classList.contains('flag')) {
           square.classList.add('flag')
           square.innerHTML = ' 🚩'
           flags ++
-          flagsLeft.innerHTML = bombAmount- flags
+          result.innerHTML = bombAmount- flags
           checkForWin()
         } else {
           square.classList.remove('flag')
           square.innerHTML = ''
           flags --
-          flagsLeft.innerHTML = bombAmount- flags
+          result.innerHTML = bombAmount- flags
         }
       }
     }
-  
-    //click on square actions
-    function click(square) {
-      let currentId = square.id
-      if (isGameOver) return
-      if (square.classList.contains('checked') || square.classList.contains('flag')) return
-      if (square.classList.contains('bomb')) {
-        gameOver(square)
-      } else {
-        let total = square.getAttribute('data')
-        if (total !=0) {
-          square.classList.add('checked')
-          if (total == 1) square.classList.add('one')
-          if (total == 2) square.classList.add('two')
-          if (total == 3) square.classList.add('three')
-          if (total == 4) square.classList.add('four')
-          square.innerHTML = total
-          return
-        }
-        checkSquare(square, currentId)
-      }
-      square.classList.add('checked')
-    }
-  
-  
-    //check neighboring squares once square is clicked
-    function checkSquare(square, currentId) {
+
+    function checkForZero(square, currentId) {
       const isLeftEdge = (currentId % width === 0)
       const isRightEdge = (currentId % width === width -1)
   
@@ -173,9 +167,30 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }, 10)
     }
-  
-    //game over
-    function gameOver(square) {
+    // function checkForZero(square,currentId){
+    //       currentId=Number(currentId);
+    //       const isLeftEdge = (currentId % width === 0)
+    //       const isRightEdge = (currentId % width === width -1)
+    //       let total=square.getAttribute('data')
+
+    //       if(isLeftEdge){
+    //         const array=[-10,-9,0,1,10,11];
+    //        for(let i=0;i<array.length;i++){
+    //         let nextsquare=currentId+array[i];
+    //         console.log(nextsquare);
+    //         console.log(typeof(currentId))
+    //        }
+              
+    //       }
+    //       else if(isRightEdge){
+
+    //       }
+    //       else{
+
+    //       }
+
+    // }
+    function gameover(square) {
       result.innerHTML = 'BOOM! Game Over!'
       isGameOver = true
   
@@ -183,13 +198,12 @@ document.addEventListener('DOMContentLoaded', () => {
       squares.forEach(square => {
         if (square.classList.contains('bomb')) {
           square.innerHTML = '💣'
-          square.classList.remove('bomb')
+          // square.classList.remove('bomb')
           square.classList.add('checked')
         }
       })
     }
-  
-    //check for win
+
     function checkForWin() {
       ///simplified win argument
     let matches = 0
