@@ -1,0 +1,16 @@
+  time_t now = time(0);
+ okay so what is this line doing
+ChatGPT
+This line of code is capturing the current time in seconds since the Unix epoch (January 1, 1970, 00:00:00 UTC) and storing it in the variable now. Here's a breakdown:
+
+time(0): This is a function call to time() with 0 as its argument. In C and C++, time() is a function from the C Standard Library's <ctime> header, which returns the current time as a time_t value.
+
+time_t now: This declares a variable named now of type time_t, which is a data type typically used to represent time in Unix and POSIX systems.
+
+So, overall, this line retrieves the current time and stores it in the variable now
+
+
+q: okay so how is it storing that time 
+Q: is time_t a library type
+Q: what is unix and posix systems and how c++ is related to it
+Q: say a program has been compiled how will i store it in varible where even if the program has been cleared from memory the vairbale stays

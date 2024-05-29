@@ -1,0 +1,12 @@
+txt to paragraph
+---read the file
+    ---how does this program work
+    ---if i understand that i can tweak some internal mechanism in my favour
+    --- use the'.' to separate spaces.
+---run the loop on it 
+--- print the file in a separate txtfile
+
+--------------------------------------------------------------------------------------------------
+extra doubts that needs to be clarified later.
+-------------------------------------------
+what is ios

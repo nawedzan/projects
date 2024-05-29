@@ -1,0 +1,12 @@
+-------- make it write into a file (done)
+--- create a new text file in the file and write the pararaph into it(done)
+--- convert the txt file into word file
+--- write the converted lines in a word file directly
+---- understand how to highlight some txt in a txt file 
+---- understand how to write a class and than use that class to manipulate docx files and try to highlight those txt files
+--- make a webstite where you can post a video and the website extracts txt file ,video for download , vtt file, srt file etc
+     it converts the srt file to txt file and textfile to a printable wordfile format
+--- get a chatgpt plugin to read that txt file aloud(the video is already doing but for experiment)
+--- now get a chatgpt plugin to translate the word file to any language and read it aloud
+--- now ask some chatgpt plugin to read the txt file and generate pictures from it
+--- now ask chatpgt to get those pictures together to form a video with some background music and read the video aloud
