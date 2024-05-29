@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //check neighboring squares once square is clicked
     function checkSquare(square, currentId) {
       const isLeftEdge = (currentId % width === 0)
-      const isRightEdge = (currentId % width === width -1))
+      const isRightEdge = (currentId % width === width -1)
   
       setTimeout(() => {
         if (currentId > 0 && !isLeftEdge) {
